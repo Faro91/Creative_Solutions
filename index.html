@@ -1,326 +1,49 @@
 
 <!DOCTYPE html>
-
 <html lang="de">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Christoph Raffel Creative Solutions</title>
-<link href="images/Logo2.jpg" rel="icon" type="image/jpeg"/>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&amp;display=swap" rel="stylesheet"/>
-<style>
-    body {
-      background-color: #000;
-      color: #fff;
-      font-family: 'Poppins', sans-serif;
-      margin: 0;
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Christoph Raffel Creative Solutions</title>
+  <style>
+    body { margin: 0; background: #000; color: #fff; font-family: sans-serif; }
+    .hamburger {
+      display: flex; flex-direction: column; cursor: pointer; gap: 5px;
+      width: 30px; margin: 1rem;
     }
-
-    header {
-      background-color: #000;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1.5rem 2rem;
+    .hamburger div {
+      height: 4px; background: white; transition: all 0.3s ease;
     }
-
-    .logo {
-      display: flex;
-      align-items: center;
-    }
-
-    .logo img {
-      height: 300px;
-      animation: glowPulse 3s infinite ease-in-out;
-    }
-
-    @keyframes glowPulse {
-      0% { filter: drop-shadow(0 0 5px #06b6d4); }
-      50% { filter: drop-shadow(0 0 25px #7c3aed); }
-      100% { filter: drop-shadow(0 0 5px #06b6d4); }
-    }
-
     nav ul {
-      list-style: none;
-      display: flex;
-      gap: 2rem;
+      list-style: none; padding: 0; margin: 0;
+      display: none; flex-direction: column; gap: 1rem;
+      background: #111; padding: 1rem;
     }
-
+    nav ul.active {
+      display: flex;
+    }
     nav a {
-      background: linear-gradient(90deg, #06b6d4, #7c3aed);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 1.2rem;
-      text-transform: uppercase;
-      position: relative;
-      display: inline-block;
-      transition: transform 0.3s ease;
-    }
-
-    nav a::after {
-      content: '';
-      position: absolute;
-      left: 0;
-      bottom: -4px;
-      width: 100%;
-      height: 2px;
-      background: linear-gradient(90deg, #06b6d4, #7c3aed);
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 0.3s ease;
-    }
-
-    nav a:hover::after {
-      transform: scaleX(1);
-    }
-
-    nav a:hover {
-      transform: translateY(-2px);
-    }
-
-    .hero {
-      text-align: center;
-      padding: 6rem 2rem;
-    }
-
-    .hero h1 {
-      font-size: 3rem;
-      background: linear-gradient(90deg, #06b6d4, #7c3aed);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      margin-bottom: 1rem;
-    }
-
-    .hero p {
-      color: #cbd5e1;
-      font-size: 1.2rem;
-    }
-
-    section {
-      padding: 4rem 1rem;
-      text-align: center;
-    }
-
-    .section-title {
-      font-size: 2rem;
-      margin-bottom: 0.5rem;
-      background: linear-gradient(90deg, #06b6d4, #7c3aed);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      display: inline-block;
-    }
-
-    .section-title::after {
-      content: '';
-      display: block;
-      width: 100px;
-      height: 4px;
-      margin: 0.5rem auto;
-      background: linear-gradient(90deg, #06b6d4, #7c3aed);
-      border-radius: 2px;
-    }
-
-    .section-text {
-      color: #cbd5e1;
-      max-width: 700px;
-      margin: 0 auto 3rem;
-      font-size: 1.1rem;
-    }
-
-    .services {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 2rem;
-    }
-
-    .card {
-      background: #111;
-      color: #fff;
-      border-radius: 1rem;
-      padding: 2rem;
-      max-width: 300px;
-      text-align: center;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-      animation: fadeInUp 1s ease forwards;
-      opacity: 0;
-    }
-
-    @keyframes fadeInUp {
-      0% { opacity: 0; transform: translateY(30px); }
-      100% { opacity: 1; transform: translateY(0); }
-    }
-
-    .card h3 {
-      color: #a855f7;
-      margin-bottom: 0.75rem;
-    }
-
-    .card p {
-      color: #cbd5e1;
-      font-size: 0.95rem;
-    }
-
-    footer {
-      background: #000;
-      text-align: center;
-      color: #888;
-      padding: 2rem 1rem;
-      font-size: 0.9rem;
-    }
-
-    .btn {
-      display: inline-block;
-      margin-top: 2rem;
-      padding: 0.75rem 2rem;
-      background: linear-gradient(90deg, #06b6d4, #7c3aed);
-      color: #fff;
-      border: none;
-      border-radius: 0.5rem;
-      text-decoration: none;
-      font-size: 1rem;
+      color: #0ff; text-decoration: none; font-weight: bold;
     }
   </style>
 </head>
 <body>
 <header>
-<div class="logo"><img alt="Logo" src="images/Logo2.jpg"/></div>
-<nav>
-<ul>
-<li><a href="#services">Dienstleistungen</a></li>
-<li><a href="#about">Über mich</a></li>
-<li><a href="#contact">Kontakt</a></li>
-</ul>
-</nav>
+  <div class="hamburger" onclick="toggleMenu()">
+    <div></div><div></div><div></div>
+  </div>
+  <nav>
+    <ul id="mobileMenu">
+      <li><a href="#services">Dienstleistungen</a></li>
+      <li><a href="#about">Über mich</a></li>
+      <li><a href="#contact">Kontakt</a></li>
+    </ul>
+  </nav>
 </header>
-<section class="hero">
-<h1>KI trifft Kreativität</h1>
-<p>Ihr Partner für moderne KI-Trainings, Mediengestaltung &amp; effiziente Prozesse</p>
-</section>
-<section id="quotes" style="padding: 4rem 2rem; display: flex; justify-content: center;">
-<div id="quote-box" style="background: #111; border: 2px solid #7c3aed; border-radius: 1.5rem; padding: 3rem 2rem; max-width: 800px; box-shadow: 0 0 30px rgba(124, 58, 237, 0.3); transition: all 0.3s ease;">
-<p id="quote-text" style="font-size: 1.3rem; font-style: italic; color: #e2e8f0; line-height: 1.6; transition: opacity 0.5s ease;"></p>
-<p id="quote-author" style="margin-top: 1.5rem; font-weight: 600; font-size: 1rem; color: #a78bfa; text-transform: uppercase; letter-spacing: 1px;"></p>
-</div>
-</section>
-
 <script>
-  const quotes = [
-    {
-      text: "Künstliche Intelligenz ist keine Bedrohung. Sie ist ein Werkzeug – eines, das uns helfen kann, einige der größten Herausforderungen unserer Zeit zu lösen.",
-      author: "Fei-Fei Li, Professorin für Informatik an der Stanford University"
-    },
-    {
-      text: "Künstliche Intelligenz ist die neue Elektrizität.",
-      author: "Andrew Ng, Mitbegründer von Google Brain und Coursera"
-    },
-    {
-      text: "Unsere Intelligenz macht uns menschlich – und KI ist eine Erweiterung genau dieser Fähigkeit.",
-      author: "Yann LeCun, Leitender KI-Wissenschaftler bei Meta (Facebook)"
-    },
-    {
-      text: "Künstliche Intelligenz wird den kreativen Menschen nicht ersetzen – aber sie wird ihn vervielfachen.",
-      author: "Garri Kasparov, Schachweltmeister und KI-Vordenker"
-    },
-    {
-      text: "KI wird die Arbeitswelt nicht zerstören – aber sie wird sie verändern. Wer sie versteht, ist im Vorteil.",
-      author: "Kai-Fu Lee, ehemaliger Präsident von Google China & KI-Investor"
-    }
-  ];
-
-  let index = 0;
-  const quoteText = document.getElementById('quote-text');
-  const quoteAuthor = document.getElementById('quote-author');
-
-  function showQuote() {
-    quoteText.style.opacity = 0;
-    quoteAuthor.style.opacity = 0;
-    setTimeout(() => {
-      quoteText.textContent = `"${quotes[index].text}"`;
-      quoteAuthor.textContent = `– ${quotes[index].author}`;
-      quoteText.style.opacity = 1;
-      quoteAuthor.style.opacity = 1;
-      index = (index + 1) % quotes.length;
-    }, 300);
+  function toggleMenu() {
+    document.getElementById('mobileMenu').classList.toggle('active');
   }
-
-  showQuote();
-  setInterval(showQuote, 8000);
 </script>
-
-<script>
-  const quotes = [
-    {
-      text: "Künstliche Intelligenz ist keine Bedrohung. Sie ist ein Werkzeug – eines, das uns helfen kann, einige der größten Herausforderungen unserer Zeit zu lösen.",
-      author: "Fei-Fei Li"
-    },
-    {
-      text: "Künstliche Intelligenz ist das neue Elektrizität.",
-      author: "Andrew Ng"
-    },
-    {
-      text: "Unsere Intelligenz macht uns menschlich – und KI ist eine Erweiterung genau dieser Fähigkeit.",
-      author: "Yann LeCun"
-    },
-    {
-      text: "Künstliche Intelligenz wird den kreativen Menschen nicht ersetzen – aber sie wird ihn vervielfachen.",
-      author: "Garri Kasparov"
-    },
-    {
-      text: "KI wird die Arbeitswelt nicht zerstören – aber sie wird sie verändern. Wer sie versteht, ist im Vorteil.",
-      author: "Kai-Fu Lee"
-    }
-  ];
-
-  let index = 0;
-  const quoteText = document.getElementById('quote-text');
-  const quoteAuthor = document.getElementById('quote-author');
-
-  function showQuote() {
-    quoteText.textContent = `"${quotes[index].text}"`;
-    quoteAuthor.textContent = `– ${quotes[index].author}`;
-    index = (index + 1) % quotes.length;
-  }
-
-  showQuote();
-  setInterval(showQuote, 8000);
-</script>
-<section id="services">
-<h2 class="section-title">Dienstleistungen</h2>
-<p class="section-text">Unsere Angebote sind individuell auf Ihre Bedürfnisse abgestimmt.</p>
-<div class="services">
-<div class="card">
-<h3>KI-Training</h3>
-<p>Praxisnahe Schulungen, die Ihr Team auf das nächste Level bringen.</p>
-</div>
-<div class="card">
-<h3>Content Creation</h3>
-<p>Texte, Bilder &amp; Kampagnen für Social Media mit KI-gestützter Kreativität.</p>
-</div>
-<div class="card">
-<h3>Prozessoptimierung</h3>
-<p>KI-gestützte Automatisierung und Beratung für kleine &amp; mittlere Unternehmen.</p>
-</div>
-</div>
-</section>
-<section id="about">
-<h2 class="section-title">Über mich</h2>
-<p class="section-text">Mein Name ist Christoph Raffel – ich bin leidenschaftlicher Technologie-Enthusiast. Seit über zehn Jahren treibe ich die Digitalisierung in Unternehmen vorran.
-Mein Schwerpunkt: Künstliche Intelligenz einfach machen – besonders für kleine und mittelständische Unternehmen, in denen viele Mitarbeitende wenig technische Vorkenntnisse haben.
-Mit Geduld, Klarheit und spielerischen Methoden zeige ich auch älteren Zielgruppen, wie KI funktioniert – und wie sie davon profitieren.</p>
-</section>
-<section id="contact">
-<h2 class="section-title">Kontakt</h2>
-<p class="section-text">Ich freue mich auf Ihre Nachricht!</p>
-<a class="btn" href="mailto:kontakt@christophraffel.de">Jetzt Kontakt aufnehmen</a>
-</section>
-<footer>
-<p>© <span id="year"></span> Christoph Raffel Creative Solutions. Alle Rechte vorbehalten.</p>
-</footer>
-<script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
 </body>
 </html>
