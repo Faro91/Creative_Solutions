@@ -31,13 +31,7 @@
       50% { filter: drop-shadow(0 0 25px #7c3aed); }
       100% { filter: drop-shadow(0 0 5px #06b6d4); }
     }
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 2rem;
-      padding: 0;
-      margin: 0;
-    }
+    
     nav a {
       background: linear-gradient(90deg, #06b6d4, #7c3aed);
       -webkit-background-clip: text;
@@ -50,6 +44,10 @@
       transition: transform 0.3s ease;
     }
     nav a::after {
+
+  
+  
+
       content: '';
       position: absolute;
       left: 0;
@@ -190,16 +188,46 @@
 
 
 @media (max-width: 768px) {
-  #quote-box {
-    padding: 2rem 1rem;
+  .nav-mobile a {
+    display: block;
+    margin-bottom: 1rem;
   }
-  #quote-text {
-    font-size: 1.1rem !important;
-  }
-  #quote-author {
-    font-size: 0.95rem !important;
-    white-space: normal !important;
-  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+nav ul {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: flex-end;
+  padding: 0;
+  margin: 0;
+}
+nav ul li {
+  list-style: none;
+  flex: 1 1 0;
+  text-align: center;
+}
+nav ul li a {
+  display: inline-block;
+  padding: 0.5rem 0.75rem;
+  white-space: nowrap;
 }
 
 </style>
@@ -214,14 +242,16 @@
     <ul>
       <li><a href="#services">Dienstleistungen</a></li>
       <li><a href="#about">Über mich</a></li>
-      <li><a href="#contact">Kontakt</a></li>
+      <li><a href="#contact">Kontakt</a>
+    </li>
+          <li></li>
     </ul>
   </nav>
   <nav class="nav-mobile" id="mobileMenu">
     <a href="#services">Dienstleistungen</a>
     <a href="#about">Über mich</a>
     <a href="#contact">Kontakt</a>
-  </nav>
+    </nav>
 </header>
 
 <section class="hero">
@@ -242,15 +272,15 @@
   <div class="services">
     <div class="card">
       <h3>KI-Training</h3>
-      <p>Praxisnahe Schulungen, die Ihr Team auf das nächste Level bringen.</p>
+      <p>Wir trainieren Ihre Teams im Umgang mit modernen KI-Anwendungen – individuell, verständlich und direkt an Ihren Praxisfällen. So bleibt Ihr Unternehmen wettbewerbsfähig – ohne IT-Abteilung oder großes Budget.</p>
     </div>
     <div class="card">
       <h3>Content Creation</h3>
-      <p>Texte, Bilder & Kampagnen für Social Media mit KI-gestützter Kreativität.</p>
+      <p>Aussagekräftige Texte, Bilder & Kampagnen für Ihr Social Media Profil oder Ihre Website, damit Sie schnell an Reichweite gewinnen können.</p>
     </div>
     <div class="card">
       <h3>Prozessoptimierung</h3>
-      <p>KI-gestützte Automatisierung und Beratung für kleine & mittlere Unternehmen.</p>
+      <p>Wir zeigen Mitarbeitenden in Ihrem Unternehmen, wie sie die aktuellsten KI-Tools und Tech-Trends im Arbeitsalltag effizient einsetzen – für weniger Stress und mehr Produktivität.</p>
     </div>
   </div>
 </section>
@@ -266,8 +296,12 @@
   <a class="btn" href="mailto:kontakt@christophraffel.de">Jetzt Kontakt aufnehmen</a>
 </section>
 
+
+
+
+
 <footer>
-  <p>© <span id="year"></span> Christoph Raffel Creative Solutions. Alle Rechte vorbehalten.</p>
+  <p>© <span id="year"></span> Christoph Raffel Creative Solutions. Alle Rechte vorbehalten. · <a href="impressum.html" style="color:#888; text-decoration: underline;">Impressum</a></p>
 </footer>
 
 <script>
